@@ -38,6 +38,7 @@ body {
         position: relative;
         z-index: 2;
         transform: translateZ(100px);
+        padding: 2rem;
     }
     .background {
         position: absolute;
@@ -94,5 +95,13 @@ body {
         right: 20px;
         font-size: 0.8em;
         opacity: 0.2;
+    }
+}
+.field {
+    margin-bottom: 0.5rem;
+    label {
+        display: inline-block;
+        text-align: right;
+        width: 5rem;
     }
 }

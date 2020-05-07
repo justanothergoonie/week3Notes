@@ -142,6 +142,7 @@ body {
 	z-index: 2;
 	-webkit-transform: translateZ(100px);
 	        transform: translateZ(100px);
+	padding: 2rem;
 }
 
 .floating-box .background {
@@ -209,6 +210,16 @@ body {
 	right: 20px;
 	font-size: 0.8em;
 	opacity: 0.2;
+}
+
+.field {
+	margin-bottom: 0.5rem;
+}
+
+.field label {
+	display: inline-block;
+	text-align: right;
+	width: 5rem;
 }
 
 /*# sourceMappingURL=main.css.map */
