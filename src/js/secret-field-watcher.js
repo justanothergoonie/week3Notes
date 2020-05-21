@@ -18,7 +18,6 @@ class SecretFieldWatcher {
 			}, // after merging this object, will be combined version
 			parameters
 		);
-
 		const name = parametersWithDefaults.name;
 		if (parametersWithDefaults.errorMessage) {
 			parametersWithDefaults.backgroundColor = 'red';
@@ -42,15 +41,25 @@ class SecretFieldWatcher {
 	lookForFieldValue = (evt) => {
 		console.log('looking!', this.options.name, this.options.value);
 		const currentValue = evt.target.value;
+		let background = document.querySelector('.background');
+		let errorMessageSpan = evt.target.parentElement.querySelector(
+			'.error-message'
+		);
 		if (currentValue === this.options.value) {
 			console.log('matched!!');
-			// now react to the matched value
 
+			// now react to the matched value
+			background.style.backgroundColor = this.options.backgroundColor;
+			if (this.options.errorMessage) {
+				errorMessageSpan.innerHTML = this.options.errorMessage;
+			}
 			// 1. set the background color of the form area (white part) to the selected background color
 			// 2. if there's an errorMessage show that in the span.error-message for this field
 			// 3. on the next change of the field, reset the background color and empty the error field
 		} else {
 			console.log('did not match: ', currentValue);
+			background.style.backgroundColor = '';
+			errorMessageSpan.innerHTML = '';
 		}
 	};
 }

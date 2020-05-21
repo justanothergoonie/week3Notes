@@ -19,14 +19,24 @@ function SecretFieldWatcher(parameters) {
   _defineProperty(this, "lookForFieldValue", function (evt) {
     console.log('looking!', _this.options.name, _this.options.value);
     var currentValue = evt.target.value;
+    var background = document.querySelector('.background');
+    var errorMessageSpan = evt.target.parentElement.querySelector('.error-message');
 
     if (currentValue === _this.options.value) {
       console.log('matched!!'); // now react to the matched value
-      // 1. set the background color of the form area (white part) to the selected background color
+
+      background.style.backgroundColor = _this.options.backgroundColor;
+
+      if (_this.options.errorMessage) {
+        errorMessageSpan.innerHTML = _this.options.errorMessage;
+      } // 1. set the background color of the form area (white part) to the selected background color
       // 2. if there's an errorMessage show that in the span.error-message for this field
       // 3. on the next change of the field, reset the background color and empty the error field
+
     } else {
       console.log('did not match: ', currentValue);
+      background.style.backgroundColor = '';
+      errorMessageSpan.innerHTML = '';
     }
   });
 
